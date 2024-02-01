@@ -2,96 +2,189 @@
 
 <head>
   <title>Assignment Edit</title>
+
+  <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="/Kanbas/Courses/Assignments/Edit/index.css" />
 </head>
 
 <body>
   <form action="/Kanbas/Courses/Assignments/screen.html">
-    <select id="select-one-genre">
-      <option selected value="SPEED GRADER">SpeedGrader</option>
-    </select>
+    <div class="wd-edit-button-container">
+      <i class="fa fa-check-circle text-success"></i> Published
+      <button type="button" class="btn btn-light" style="text-align: right">
+        <i class="fa fa-ellipsis-v"></i>
+      </button>
+    </div>
     <hr />
 
-    <h3>Assignment Name</h3>
-    <input value="A1 - ENV + HTML" />
-    <br />
-    <br />
-    <textarea>This is the assignment description.</textarea>
-    <br />
+    <div class="mb-3">
+      <label for="input1" class="form-label"> Assignment Name</label>
+      <input type="text" class="form-control" id="input1" value="A1 - ENV + HTML" />
+    </div>
+
+    <div class="mb-3">
+      <textarea class="form-control" id="textarea1" rows="3">
+This is the assignment description.</textarea>
+    </div>
     <br />
 
-    <label for="text-fields-points">Points</label><br />
-    <input id="text-fields-points" value="100" />
-    <br />
-    <br />
+    <div class="mb-3 row">
+      <div class="col-sm-2 text-sm-end mb-2 mb-sm-0">
+        <label for="points" class="col-form-label">Points</label>
+      </div>
+      <div class="col-sm-10" style="width: 60%">
+        <input type="text" class="form-control" id="points" value="100" />
+      </div>
+    </div>
 
-    <label for="select-one-genre">Assignment Group</label><br />
-    <select id="select-one-genre">
-      <option selected value="ASSIGNMENTS">ASSIGNMENTS</option>
-      <option>QUIZ</option>
-      <option>EXAM</option>
-      <option>PROJECT</option>
-    </select>
-    <br />
-    <br />
+    <div class="mb-3 row">
+      <div class="col-sm-2 text-sm-end mb-2 mb-sm-0">
+        <label for="select-one-genre" class="col-form-label">Assignment Group</label>
+      </div>
+      <div class="col-sm-10" style="width: 60%">
+        <select class="form-select">
+          <option selected>ASSIGNMENTS</option>
+          <option value="QUIZ">QUIZ</option>
+          <option value="EXAM">EXAM</option>
+          <option value="PROJECT">PROJECT</option>
+        </select>
+      </div>
+    </div>
 
-    <label for="select-one-genre">Display Grade as</label><br />
-    <select id="select-one-genre">
-      <option selected value="PERCENTAGE">Percentage</option>
-    </select>
-    <br />
-    <br />
+    <div class="mb-3 row">
+      <div class="col-sm-2 text-sm-end mb-2 mb-sm-0">
+        <label for="select-one-genre" class="col-form-label">Display Grade as</label>
+      </div>
+      <div class="col-sm-10" style="width: 60%">
+        <select class="form-select">
+          <option selected>Percentage</option>
+        </select>
+        <br class="d-sm-none" />
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="1" />
+          <label class="form-check-label" for="1">Do not count this assignment towards the final grade</label>
+        </div>
+      </div>
+    </div>
 
-    <label for="select-one-genre">Submision Type</label><br />
-    <select id="select-one-genre">
-      <option selected value="ONLINE">Online</option>
-    </select>
-    <br />
-    <br />
+    <div class="mb-3 row">
+      <div class="col-sm-2 text-sm-end mb-2 mb-sm-0">
+        <label for="select-one-genre" class="col-form-label">Submision Type</label>
+      </div>
+      <div class="col-sm-10" style="width: 60%">
+        <select class="form-select">
+          <option selected>Online</option>
+        </select>
+      </div>
+    </div>
 
-    <label>Online Entry Options</label>
-    <br />
-    <label><input type="checkbox" name="online-entry-options" />Text Entry</label><br />
-    <label><input type="checkbox" name="online-entry-options" />Website URL<br /></label>
-    <label><input type="checkbox" name="online-entry-options" />Media
-      Recordings<br /></label>
-    <label><input type="checkbox" name="online-entry-options" />Student
-      Annotation<br /></label>
-    <label><input type="checkbox" name="online-entry-options" />File Uploads<br /></label>
-    <br />
+    <div class="mb-3 row">
+      <div class="col-sm-2 text-sm-end mb-2 mb-sm-0">
+        <label class="col-form-label">Online Entry Options</label>
+      </div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="r1" />
+          <label class="form-check-label" for="r1">Text Entry</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="r2" />
+          <label class="form-check-label" for="r2">Website URL</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="r3" />
+          <label class="form-check-label" for="r3">Media</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="r4" />
+          <label class="form-check-label" for="r4">Student</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="r5" />
+          <label class="form-check-label" for="r5">File Uploads</label>
+        </div>
+      </div>
+    </div>
 
-    <label>Group Assignments</label>
-    <br />
-    <label><input type="checkbox" name="online-entry-options" />Assignment</label><br />
-    <br />
+    <div class="mb-3 row">
+      <div class="col-sm-2 text-sm-end mb-2 mb-sm-0">
+        <label class="col-form-label">Group Assignments</label>
+      </div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="1" />
+          <label class="form-check-label" for="1">Assignment</label>
+        </div>
+      </div>
+    </div>
 
-    <label>Peer Review</label>
-    <br />
-    <label><input type="checkbox" name="online-entry-options" />Review</label><br />
-    <br />
+    <div class="mb-3 row">
+      <div class="col-sm-2 text-sm-end mb-2 mb-sm-0">
+        <label class="col-form-label">Peer Review</label>
+      </div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="2" />
+          <label class="form-check-label" for="2">Review</label>
+        </div>
+      </div>
+    </div>
 
-    <label for="text-fields-assign">Assign</label><br />
-    <label for="text-fields-assign-to">Assign to</label><br />
-    <input id="text-fields" value="Everyone" />
-    <br />
-    <br />
+    <div class="mb-3 row">
+      <div class="col-sm-2 text-sm-end mb-2 mb-sm-0">
+        <label for="text-fields-assign" class="col-form-label">Assign</label><br />
+      </div>
+      <div class="col-sm-10" style="width: 60%">
+        <div class="card">
+          <div class="card-body">
+            <strong>Assign to</strong><br />
+            <input class="form-control" id="text-fields" value="Everyone" />
+            <br />
+            <br />
 
-    <label for="text-fields-due">Due</label><br />
-    <input type="date" id="text-fields-due" value="2021-01-01" />
-    <br />
-    <br />
+            <strong>Due</strong>
+            <div class="input-group mb-3">
+              <input type="date" class="form-control" id="input-due" value="2021-01-01" />
+              <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+            </div>
 
-    <label for="text-fields-available-from">Available from</label><br />
-    <input type="date" id="text-fields-available-from" value="2021-01-01" />
-    <br />
-    <br />
+            <div class="row">
+              <div class="col-md-6">
+                <strong>Available from</strong>
+                <div class="input-group mb-3">
+                  <input type="date" class="form-control" id="input-available-from" value="2021-01-01" />
+                  <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+              </div>
 
-    <label for="text-fields-until">Until</label><br />
-    <input type="date" id="text-fields-until" value="2021-01-01" />
-    <br />
-    <br />
+              <div class="col-md-6">
+                <strong>Until</strong>
+                <div class="input-group mb-3">
+                  <input type="date" class="form-control" id="input-until" value="2021-01-01" />
+                  <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-group-text" style="justify-content: center">
+            + Add
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <button>Cancel</button>
-    <button>Save</button>
+    <hr />
+    <div style="display: flex; justify-content: space-between">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="footer" />
+        <label class="form-check-label" for="footer">Notify users that this content has changed</label>
+      </div>
+      <div class="float-end">
+        <button type="button" class="btn btn-light">Cancel</button>
+        <button type="button" class="btn btn-danger">Save</button>
+      </div>
+    </div>
   </form>
 </body>
 

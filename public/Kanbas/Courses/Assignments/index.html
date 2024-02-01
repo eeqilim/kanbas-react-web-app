@@ -2,142 +2,126 @@
 
 <head>
   <title>Assignments</title>
+
+  <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="/Kanbas/Courses/Assignments/index.css" />
 </head>
 
 <body>
-  <input id="text-fields-search-students" placeholder="Search for Assignments" />
-  <button type="button">Group</button>
-  <button type="button">Assignment</button>
-  <select id="select-one-genre">
-    <option selected value="EDIT ASSIGNMENT DATES">
-      Edit Assignment Dates
-    </option>
-    <option>Assignment Group Weights</option>
-    <option>Gradescope 1.3</option>
-  </select>
+  <div class="row">
+    <div class="col-sm-6">
+      <input type="text" class="form-control w-25" id="text-fields-search-students"
+        placeholder="Search for Assignments" />
+    </div>
+    <div class="col-sm-6">
+      <span class="float-end">
+        <button type="button" class="btn btn-light">+ Group</button>
+        <button type="button" class="btn btn-danger">+ Assignment</button>
+        <button type="button" class="btn btn-light">
+          <i class="fa fa-ellipsis-v"></i>
+        </button>
+      </span>
+    </div>
+  </div>
   <hr />
 
-  <h3>
-    ASSIGNMENT 40% of Total
-    <select id="select-one-genre">
-      <option selected value="EDIT">Edit</option>
-      <option value="SPEED GRADER">Speed Grader</option>
-      <option value="DUPLICATE">Duplicate</option>
-      <option value="DELETE">Delete</option>
-      <option value="MOVE TO">Move To...</option>
-      <option value="SEND TO">Send To...</option>
-      <option value="COPY TO">Copy To...</option>
-      <option value="SHARE To Commons">Share to Commons</option>
-    </select>
-  </h3>
+  <ul class="list-group wd-assignments">
+    <li class="list-group-item">
+      <div>
+        <i class="fa fa-ellipsis-v"></i> Assignments
+        <span class="float-end">
+          <button type="button" class="rounded-pill">40% of Total</button>
+          <i class="fa fa-plus ms-2"></i>
+          <i class="fa fa-ellipsis-v ms-2"></i>
+        </span>
+      </div>
 
-  <ul>
-    <li>
-      <a href="/Kanbas/Courses/Assignments/Edit/screen.html">A1 - ENV + HTML</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
-    </li>
-    <li>
-      <a href="/Kanbas/Courses/Assignments/Edit/screen.html">A2 - CSS + BOOTSTRAP</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
-    </li>
-    <li>
-      <a href="/Kanbas/Courses/Assignments/Edit/screen.html">A3 - JS + REACT</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
-    </li>
-    <li>
-      <a href="/Kanbas/Courses/Assignments/Edit/screen.html">A4 - STATE + REDUX</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
-    </li>
-    <li>
-      <a href="/Kanbas/Courses/Assignments/Edit/screen.html">A4 - NODE + SESSION</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
-    </li>
-    <li>
-      <a href="/Kanbas/Courses/Assignments/Edit/screen.html">A5 - MONGO + MONGOOSE</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
-    </li>
-  </ul>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <span>
+            <i class="fa fa-ellipsis-v"></i>
+            <i class="fa fa-pencil-square-o"></i></span>
+          <a href="/Kanbas/Courses/Assignments/Edit/screen.html"> A1 SETUP</a></strong><br />
+          <span class="float-end">
+            <i class="fa fa-check-circle text-success"></i>
+            <i class="fa fa-ellipsis-v ms-2"></i>
+          </span>
+          Week 0 - SETUP - Week starting on Monday September 5th (9/5/2022)
+          Module | <br />
+          Due Sep 18, 2022 at 11:59pm | 100 pts
+        </li>
 
-  <h3>
-    QUIZZES 10% of Total
-    <select id="select-one-genre">
-      <option selected value="EDIT">Edit</option>
-      <option value="SPEED GRADER">Speed Grader</option>
-      <option value="DUPLICATE">Duplicate</option>
-      <option value="DELETE">Delete</option>
-      <option value="MOVE TO">Move To...</option>
-      <option value="SEND TO">Send To...</option>
-      <option value="COPY TO">Copy To...</option>
-      <option value="SHARE To Commons">Share to Commons</option>
-    </select>
-  </h3>
+        <li class="list-group-item">
+          <span>
+            <i class="fa fa-ellipsis-v"></i>
+            <i class="fa fa-pencil-square-o"></i></span>
+          <a href="/Kanbas/Courses/Assignments/Edit/screen.html"> A2 HTML</a><br />
+          <span class="float-end">
+            <i class="fa fa-check-circle text-success"></i>
+            <i class="fa fa-ellipsis-v ms-2"></i>
+          </span>
+          Week 1 - HTML - Week starting on Monday September 5th (9/5/2022)
+          Module | <br />
+          Due Sep 18, 2022 at 11:59pm | 100 pts
+        </li>
 
-  <ul>
-    <li>
-      <a href="#">Q1 - HTML</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
-    </li>
-    <li>
-      <a href="#">Q2 - CSS</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
-    </li>
-    <li>
-      <a href="#">Q3 - JS, ES6</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
-    </li>
-    <li>
-      <a href="#">Q4 - NODE</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
-    </li>
-    <li>
-      <a href="#">Q5 - MONGO</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
-    </li>
-  </ul>
+        <li class="list-group-item">
+          <span>
+            <i class="fa fa-ellipsis-v"></i>
+            <i class="fa fa-pencil-square-o"></i></span>
+          <a href="/Kanbas/Courses/Assignments/Edit/screen.html"> A3 CSS</a><br />
+          <span class="float-end">
+            <i class="fa fa-check-circle text-success"></i>
+            <i class="fa fa-ellipsis-v ms-2"></i>
+          </span>
+          Week 2 - CSS - Week starting on Monday September 5th (9/5/2022)
+          Module | <br />
+          Due Sep 18, 2022 at 11:59pm | 100 pts
+        </li>
 
-  <h3>
-    Exams 20% of Total
-    <select id="select-one-genre">
-      <option selected value="EDIT">Edit</option>
-      <option value="SPEED GRADER">Speed Grader</option>
-      <option value="DUPLICATE">Duplicate</option>
-      <option value="DELETE">Delete</option>
-      <option value="MOVE TO">Move To...</option>
-      <option value="SEND TO">Send To...</option>
-      <option value="COPY TO">Copy To...</option>
-      <option value="SHARE To Commons">Share to Commons</option>
-    </select>
-  </h3>
+        <li class="list-group-item">
+          <span>
+            <i class="fa fa-ellipsis-v"></i>
+            <i class="fa fa-pencil-square-o"></i></span>
+          <a href="/Kanbas/Courses/Assignments/Edit/screen.html"> A4 BOOTSTRAP</a><br />
+          <span class="float-end">
+            <i class="fa fa-check-circle text-success"></i>
+            <i class="fa fa-ellipsis-v ms-2"></i>
+          </span>
+          Week 3 - BOOTSTRAP - Week starting on Monday September 5th
+          (9/5/2022) Module | <br />
+          Due Sep 18, 2022 at 11:59pm | 100 pts
+        </li>
 
-  <ul>
-    <li>
-      <a href="#">Midterm</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
-    </li>
-    <li>
-      <a href="#">Final</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
-    </li>
-  </ul>
+        <li class="list-group-item">
+          <span>
+            <i class="fa fa-ellipsis-v"></i>
+            <i class="fa fa-pencil-square-o"></i></span>
+          <a href="/Kanbas/Courses/Assignments/Edit/screen.html"> A5 JAVASCRIPT</a><br />
+          <span class="float-end">
+            <i class="fa fa-check-circle text-success"></i>
+            <i class="fa fa-ellipsis-v ms-2"></i>
+          </span>
+          Week 4 - JavaScript - Week starting on Monday September 5th
+          (9/5/2022) Module | <br />
+          Due Sep 18, 2022 at 11:59pm | 100 pts
+        </li>
 
-  <h3>
-    PROJECT 30% of Total
-    <select id="select-one-genre">
-      <option selected value="EDIT">Edit</option>
-      <option value="SPEED GRADER">Speed Grader</option>
-      <option value="DUPLICATE">Duplicate</option>
-      <option value="DELETE">Delete</option>
-      <option value="MOVE TO">Move To...</option>
-      <option value="SEND TO">Send To...</option>
-      <option value="COPY TO">Copy To...</option>
-      <option value="SHARE To Commons">Share to Commons</option>
-    </select>
-  </h3>
-
-  <ul>
-    <li>
-      <a href="#">Project</a><br />
-      <a href="#">Multiple Modules</a> | Not available yet
+        <li class="list-group-item">
+          <span>
+            <i class="fa fa-ellipsis-v"></i>
+            <i class="fa fa-pencil-square-o"></i></span>
+          <a href="/Kanbas/Courses/Assignments/Edit/screen.html"> A6 REACT</a><br />
+          <span class="float-end">
+            <i class="fa fa-check-circle text-success"></i>
+            <i class="fa fa-ellipsis-v ms-2"></i>
+          </span>
+          Week 4 - React & Routing - Week starting on Monday September 5th
+          (9/5/2022) Module | <br />
+          Due Sep 18, 2022 at 11:59pm | 100 pts
+        </li>
+      </ul>
     </li>
   </ul>
 </body>

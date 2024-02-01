@@ -1,291 +1,376 @@
 <html>
 
 <head>
-  <title>Grade</title>
+  <title>Grades</title>
+
+  <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/Kanbas/styles.css" />
+  <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+  <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css" />
 </head>
 
 <body>
-  <table width="100%">
-    <tbody>
-      <tr valign="top">
-        <td>
-          <ul>
-            <li>
-              <a href="/Kanbas/Account/Navigation/index.html">Account</a>
-            </li>
-            <li>
-              <a href="/Kanbas/Dashboard/screen.html">Dashboard</a>
-            </li>
-            <li>
-              <a href="/Kanbas/Courses/Home/screen.html">Courses</a>
-            </li>
-            <li>
-              <a href="/Kanbas/Calendar/index.html">Calendar</a>
-            </li>
-            <li><a href="/Kanbas/Inbox/index.html">Inbox</a></li>
-            <li><a href="#">History</a></li>
-            <li><a href="#">Studio</a></li>
-            <li><a href="#">Commons</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-        </td>
-        <td>
-          <ul>
-            <li>
-              <a href="/Kanbas/Courses/Home/screen.html">Home</a>
-            </li>
-            <li><a href="/Kanbas/Courses/Modules/screen.html">Modules</a></li>
-            <li><a href="/Kanbas/Courses/Piazza/index.html">Piazza</a></li>
-            <li><a href="#">Zoom Meetings</a></li>
-            <li>
-              <a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a>
-            </li>
-            <li><a href="#">Quizzes</a></li>
-            <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
-            <li><a href="#">People</a></li>
-            <li><a href="#">Panopto Video</a></li>
-            <li><a href="#">Discussions</a></li>
-            <li><a href="#">Announcements</a></li>
-            <li><a href="#">Pages</a></li>
-            <li><a href="#">Files</a></li>
-            <li><a href="#">Rubrics</a></li>
-            <li><a href="#">Outcomes</a></li>
-            <li><a href="#">Collaborations</a></li>
-            <li><a href="#">Syllabus</a></li>
-            <li><a href="/Kanbas/Courses/Settings/CourseDetails/screen.html">Settings</a></li>
-          </ul>
-        </td>
-        <td>
-          <select id="select-one-genre">
-            <option selected value="GRADEBOOK">Gradebook</option>
-            <option>Change Gradebook view</option>
-            <option>Traditional Gradebook</option>
-            <option>Individual Gradebook</option>
-          </select>
-          <button type="button">Import</button>
-          <select id="select-one-genre">
-            <option selected value="EXPORT">Export</option>
-            <option>Export Current Gradebook View</option>
-            <option>Export Entire Gradebook</option>
-          </select>
-          <button type="button">Configure</button>
+  <div class="d-flex">
+    <div class="d-none d-md-block">
+      <ul class="wd-kanbas-navigation">
+        <img src="https://www.h-net.org/jobs/logo_view.php?id=59042&scale=0" height="79px" />
+        <li>
+          <a href="/Kanbas/Account/Profile/screen.html"><i class="fa fa-user-circle-o"
+              style="color: white"></i>Account</a>
+        </li>
+        <li>
+          <a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i> Dashboard</a>
+        </li>
+        <li class="wd-active">
+          <a href="/Kanbas/Courses/Home/screen.html"><i class="fa fa-book"></i>Courses</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-calendar"></i>Calendar</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-inbox"></i><br />Inbox</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-history"></i>History</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-desktop"></i>Studio</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-external-link"></i>Commons</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-question-circle-o"></i><br />Help</a>
+        </li>
+      </ul>
+    </div>
+    <div class="flex-fill">
+      <div style="padding-left: 80px">
+        <ul class="d-md-block" style="margin-top: 1%">
+          <nav aria-label="breadcrumb">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <ol class="breadcrumb" style="--bs-breadcrumb-divider: '>'">
+                  <i class="fa fa-bars"></i>
+                  <li class="breadcrumb-item">
+                    <a href="/Kanbas/Courses/Modules/screen.html" style="padding-left: 30px">CS5610.11744.202310</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Grades
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </nav>
+          <hr />
+        </ul>
 
-          <form id="text-fields">
-            <h3>Student Names</h3>
-            <input id="text-fields-search-students" placeholder="Search Students" /><br />
-            <h3>Assignment Names</h3>
-            <input id="text-fields-search-assignments" placeholder="Search Assignments" /><br />
-          </form>
+        <div class="d-flex">
+          <div class="d-none d-md-block">
+            <ul class="wd-navigation">
+              <h6 style="font-size: 12px">
+                <em>202430_2 Spring 2024 Semester</em>
+              </h6>
+              <li>
+                <a href="/Kanbas/Courses/Home/screen.html">Home</a>
+              </li>
+              <li>
+                <a href="/Kanbas/Courses/Modules/screen.html">Modules</a>
+              </li>
+              <li><a href="http://piazza.com">Piazza</a></li>
+              <li><a href="#">Zoom Meetings</a></li>
+              <li>
+                <a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a>
+              </li>
+              <li><a href="#">Quizzes</a></li>
+              <li class="wd-active">
+                <a href="/Kanbas/Courses/Grades/screen.html">Grades</a>
+              </li>
+              <li><a href="#">People</a></li>
+              <li><a href="#">Panopto Video</a></li>
+              <li><a href="#">Discussions</a></li>
+              <li><a href="#">Announcements</a></li>
+              <li><a href="#">Pages</a></li>
+              <li><a href="#">Files</a></li>
+              <li><a href="#">Rubrics</a></li>
+              <li><a href="#">Outcomes</a></li>
+              <li><a href="#">Collaborations</a></li>
+              <li><a href="#">Syllabus</a></li>
+              <li>
+                <a href="/Kanbas/Courses/Settings/CourseDetails/screen.html">Settings</a>
+              </li>
+            </ul>
+          </div>
+          <div class="flex-fill p-3">
+            <div class="text-end mb-3">
+              <button type="button" class="btn btn-light me-1">
+                <i class="fa fa-download"></i> Import
+              </button>
+              <button class="btn btn-light dropdown-toggle me-1" type="button" id="exportDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-upload"></i> Export
+              </button>
+              <button type="button" class="btn btn-light">
+                <i class="fa fa-cog"></i>
+              </button>
+            </div>
 
-          <button type="button">Apply Filters</button>
-          <br />
-          <br />
+            <div class="row">
+              <div class="col-md-6">
+                <strong>Student Names</strong>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Search Students" />
+                </div>
+              </div>
 
-          <table border="1" width="100%">
-            <thead>
-              <tr>
-                <th>Student Name</th>
-                <th>
-                  A1 SETUP <br />
-                  Out of 100
-                </th>
-                <th>
-                  A2 HTML <br />
-                  Out of 100
-                </th>
-                <th>
-                  A3 CSS <br />
-                  Out of 100
-                </th>
-                <th>
-                  A4 BOOTSTRAP <br />
-                  Out of 100
-                </th>
-                <th>
-                  A5 JAVASCRIPT <br />
-                  Out of 100
-                </th>
-                <th>
-                  A6 REACT <br />
-                  Out of 100
-                </th>
-                <th>
-                  A7 REDUX <br />
-                  Out of 100
-                </th>
-                <th>
-                  A8 NODE <br />
-                  Out of 100
-                </th>
-                <th>
-                  A9 MONGO <br />
-                  Out of 100
-                </th>
-              </tr>
-            </thead>
-            <tbody align="center">
-              <tr>
-                <td align="left">Alice Wonderland</td>
-                <td>98</td>
-                <td>89</td>
-                <td>87</td>
-                <td>90</td>
-                <td>89</td>
-                <td>94</td>
-                <td>88</td>
-                <td>87</td>
-                <td>100</td>
-              </tr>
-              <tr>
-                <td align="left">Princess Leia</td>
-                <td>98</td>
-                <td>80</td>
-                <td>87</td>
-                <td>86</td>
-                <td>100</td>
-                <td>94</td>
-                <td>
-                  <input id="grade" style="width: 50px; text-align: center" value="85" />
-                </td>
-                <td>84</td>
-                <td>92</td>
-              </tr>
-              <tr>
-                <td align="left">Luke Skywalker</td>
-                <td>
-                  <input id="grade" style="width: 50px; text-align: center" value="99" />
-                </td>
-                <td>88</td>
-                <td>97</td>
-                <td>82</td>
-                <td>96</td>
-                <td>93</td>
-                <td>95</td>
-                <td>100</td>
-                <td>93</td>
-              </tr>
-              <tr>
-                <td align="left">Han Solo</td>
-                <td>83</td>
-                <td>99</td>
-                <td>94</td>
-                <td>98</td>
-                <td>86</td>
-                <td>85</td>
-                <td>
-                  <input id="grade" style="width: 50px; text-align: center" value="86" />
-                </td>
-                <td>80</td>
-                <td>84</td>
-              </tr>
-              <tr>
-                <td align="left">Lando Calresian</td>
-                <td>83</td>
-                <td>
-                  <input id="grade" style="width: 50px; text-align: center" value="92" />
-                </td>
-                <td>80</td>
-                <td>80</td>
-                <td>92</td>
-                <td>92</td>
-                <td>94</td>
-                <td>87</td>
-                <td>95</td>
-              </tr>
-              <tr>
-                <td align="left">Boba Fet</td>
-                <td>85</td>
-                <td>89</td>
-                <td>94</td>
-                <td>83</td>
-                <td>83</td>
-                <td>84</td>
-                <td>91</td>
-                <td>87</td>
-                <td>96</td>
-              </tr>
-              <tr>
-                <td align="left">Darth Vadar</td>
-                <td>81</td>
-                <td>81</td>
-                <td>
-                  <input id="grade" style="width: 50px; text-align: center" value="96" />
-                </td>
-                <td>80</td>
-                <td>89</td>
-                <td>88</td>
-                <td>82</td>
-                <td>80</td>
-                <td>82</td>
-              </tr>
-              <tr>
-                <td align="left">Obi-Wan Kenobi</td>
-                <td>
-                  <input id="grade" style="width: 50px; text-align: center" value="85" />
-                </td>
-                <td>99</td>
-                <td>87</td>
-                <td>82</td>
-                <td>88</td>
-                <td>83</td>
-                <td>88</td>
-                <td>92</td>
-                <td>90</td>
-              </tr>
-              <tr>
-                <td align="left">R2-D2</td>
-                <td>81</td>
-                <td><input id="grade" style="width: 50px; text-align: center" value="92" /></td>
-                <td><input id="grade" style="width: 50px; text-align: center" value="82" /></td>
-                <td>86</td>
-                <td>83</td>
-                <td><input id="grade" style="width: 50px; text-align: center" value="84" /></td>
-                <td>98</td>
-                <td>85</td>
-                <td>87</td>
-              </tr>
-              <tr>
-                <td align="left">C-3PO</td>
-                <td>94</td>
-                <td>98</td>
-                <td>83</td>
-                <td>83</td>
-                <td>100</td>
-                <td>96</td>
-                <td>96</td>
-                <td>85</td>
-                <td>87</td>
-              </tr>
-              <tr>
-                <td align="left">Yoda</td>
-                <td>80</td>
-                <td>89</td>
-                <td>99</td>
-                <td>89</td>
-                <td>96</td>
-                <td>85</td>
-                <td>96</td>
-                <td>92</td>
-                <td>95</td>
-              </tr>
-              <tr>
-                <td align="left">Admiral Ackbar</td>
-                <td>82</td>
-                <td>88</td>
-                <td>95</td>
-                <td>100</td>
-                <td><input id="grade" style="width: 50px; text-align: center" value="93" /></td>
-                <td>98</td>
-                <td>85</td>
-                <td>87</td>
-                <td>99</td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+              <div class="col-md-6">
+                <strong>Assignment Names</strong>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Search Assignments" />
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-light mb-3">
+              <i class="fa fa-filter"></i> Apply Filters
+            </button>
+
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered">
+                <thead>
+                  <tr class="text-center align-middle">
+                    <th class="text-start">Student Name</th>
+                    <th>
+                      A1 SETUP <br />
+                      Out of 100
+                    </th>
+                    <th>
+                      A2 HTML <br />
+                      Out of 100
+                    </th>
+                    <th>
+                      A3 CSS <br />
+                      Out of 100
+                    </th>
+                    <th>
+                      A4 BOOTSTRAP <br />
+                      Out of 100
+                    </th>
+                    <th>
+                      A5 JAVASCRIPT <br />
+                      Out of 100
+                    </th>
+                    <th>
+                      A6 REACT <br />
+                      Out of 100
+                    </th>
+                    <th>
+                      A7 REDUX <br />
+                      Out of 100
+                    </th>
+                    <th>
+                      A8 NODE <br />
+                      Out of 100
+                    </th>
+                    <th>
+                      A9 MONGO <br />
+                      Out of 100
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="text-center align-middle">
+                  <tr>
+                    <td class="text-start">Doxa Asibey</td>
+                    <td>100%</td>
+                    <td>
+                      <input type="text" class="form-control" style="width: 85px; margin: auto; text-align: center"
+                        value="100%" />
+                    </td>
+                    <td>
+                      <input type="text" class="form-control" style="width: 85px; margin: auto; text-align: center"
+                        value="89.59%" />
+                    </td>
+                    <td>
+                      <input type="text" class="form-control" style="width: 85px; margin: auto; text-align: center"
+                        value="98.56%" />
+                    </td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start">Thuy Tien Bui</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>
+                      <input type="text" class="form-control" style="width: 85px; margin: auto; text-align: center"
+                        value="91.5%" />
+                    </td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start">Yetong Chen</td>
+                    <td>100%</td>
+                    <td>
+                      <input type="text" class="form-control" style="width: 85px; margin: auto; text-align: center"
+                        value="97%" />
+                    </td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start">Zhenyu Chen</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>98.64%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>
+                      <input type="text" class="form-control" style="width: 85px; margin: auto; text-align: center"
+                        value="93%" />
+                    </td>
+                    <td>100%</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start">Yung-Shin Chien</td>
+                    <td>100%</td>
+                    <td>
+                      <input type="text" class="form-control" style="width: 85px; margin: auto; text-align: center"
+                        value="100%" />
+                    </td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start">Basil Coughlan</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>99.32%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>
+                      <input type="text" class="form-control" style="width: 85px; margin: auto; text-align: center"
+                        value="88.2%" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-start">Rachel Dao</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>
+                      <input type="text" class="form-control" style="width: 85px; margin: auto; text-align: center"
+                        value="81.7%" />
+                    </td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start">Luna Do</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>
+                      <input type="text" class="form-control" style="width: 85px; margin: auto; text-align: center"
+                        value="92.2%" />
+                    </td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start">Kartikey Dwivedi</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start">Jiarong Feng</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>
+                      <input type="text" class="form-control" style="width: 85px; margin: auto; text-align: center"
+                        value="94.24%" />
+                    </td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start">Saurabh Sunil Gade</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>
+                      <input type="text" class="form-control" style="width: 85px; margin: auto; text-align: center"
+                        value="91%" />
+                    </td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td class="text-start">Admiral Ackbar</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>
+                      <input type="text" class="form-control" style="width: 85px; margin: auto; text-align: center"
+                        value="93%" />
+                    </td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

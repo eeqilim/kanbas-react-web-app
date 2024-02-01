@@ -1,0 +1,99 @@
+.wd-modules,
+.wd-modules * {
+    border-radius: 0%;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.wd-modules {
+    margin: 5px;
+}
+
+.wd-modules>li {
+    background-color: lightgray;
+    border: 1px solid gray !important;
+    border-left: none !important;
+}
+
+.wd-modules>li>div {
+    padding: 6px;
+    border-left: 1px solid gray !important;
+}
+
+.wd-modules>li>ul>li {
+    padding: 5px;
+    border-top: 1px solid gray !important;
+    border-left: 2px solid green;
+}
+
+.wd-modules>li {
+    margin-bottom: 20px;
+}
+
+.wd-modules-button-container {
+    text-align: right;
+}
+
+.wd-modules-button-red {
+    background-color: red;
+    border: none;
+    color: white;
+}
+
+.wd-modules-header {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.wd-modules-sandwich-icon {
+    float: left;
+    margin-top: 20px;
+}
+
+.wd-modules-right-header-icon {
+    position: absolute;
+    top: 20px;
+}
+
+.wd-modules-button-green {
+    background-color: green;
+    border: none;
+    color: white;
+}
+
+.wd-modules-course-status-button {
+    width: 250px;
+    text-align: left;
+}
+
+.wd-modules-kanbas-navigation {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.wd-modules-kanbas-navigation a {
+    color: red;
+    text-decoration: none;
+}
+
+.wd-modules-kanbas-navigation a i {
+    color: red;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.wd-modules-navigation {
+    list-style: none;
+    width: 100%;
+    color: red;
+}
+
+.wd-modules-navigation a {
+    color: red;
+    text-decoration: none;
+}

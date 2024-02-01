@@ -1,0 +1,18 @@
+.wd-edit,
+.wd-edit * {
+    border-radius: 0%;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.wd-edit-button-container {
+    text-align: right;
+    color: green;
+}
+
+.wd-edit-button-red {
+    background-color: red;
+    border: none;
+    color: white;
+}
