@@ -1,0 +1,200 @@
+[
+    {
+        "_id": "M101",
+        "name": "Resources",
+        "course": "RS101"
+    },
+    {
+        "_id": "M102",
+        "name": "Required Textbook",
+        "course": "RS101"
+    },
+    {
+        "_id": "M103",
+        "name": "Week 0 - INTRO",
+        "description": "LEARNING OBJECTIVES",
+        "course": "RS101",
+        "lessons": [
+            {
+                "_id": "L301",
+                "name": "Introduction to the course",
+                "module": "M103"
+            },
+            {
+                "_id": "L302",
+                "name": "Learn what is Web Development",
+                "module": "M103"
+            },
+            {
+                "_id": "L303",
+                "name": "Creating a development environment",
+                "module": "M103"
+            },
+            {
+                "_id": "L304",
+                "name": "Creating a Web Application",
+                "module": "M103"
+            },
+            {
+                "_id": "L305",
+                "name": "Getting started with the 1st assignment",
+                "module": "M103"
+            }
+        ]
+    },
+    {
+        "_id": "M104",
+        "name": "Week 1 - HTML",
+        "description": "LEARNING OBJECTIVES",
+        "course": "RS101",
+        "lessons": [
+            {
+                "_id": "L401",
+                "name": "Learn how to create user interfaces with HTML",
+                "module": "M104"
+            },
+            {
+                "_id": "L402",
+                "name": "Keep working on assignemnt 1",
+                "module": "M104"
+            },
+            {
+                "_id": "L403",
+                "name": "Deploy the assignment to Netlify",
+                "module": "M104"
+            }
+        ]
+    },
+    {
+        "_id": "M201",
+        "name": "Resources",
+        "course": "RS102"
+    },
+    {
+        "_id": "M202",
+        "name": "Required Textbook",
+        "course": "RS102"
+    },
+    {
+        "_id": "M203",
+        "name": "Week 0 - INTRO",
+        "description": "LEARNING OBJECTIVES",
+        "course": "RS102",
+        "lessons": [
+            {
+                "_id": "L301",
+                "name": "Introduction to the course",
+                "module": "M103"
+            },
+            {
+                "_id": "L302",
+                "name": "Learn what is Web Development",
+                "module": "M103"
+            },
+            {
+                "_id": "L303",
+                "name": "Creating a development environment",
+                "module": "M103"
+            },
+            {
+                "_id": "L304",
+                "name": "Creating a Web Application",
+                "module": "M103"
+            },
+            {
+                "_id": "L305",
+                "name": "Getting started with the 1st assignment",
+                "module": "M103"
+            }
+        ]
+    },
+    {
+        "_id": "M204",
+        "name": "Week 1 - HTML",
+        "description": "LEARNING OBJECTIVES",
+        "course": "RS102",
+        "lessons": [
+            {
+                "_id": "L401",
+                "name": "Learn how to create user interfaces with HTML",
+                "module": "M104"
+            },
+            {
+                "_id": "L402",
+                "name": "Keep working on assignemnt 1",
+                "module": "M104"
+            },
+            {
+                "_id": "L403",
+                "name": "Deploy the assignment to Netlify",
+                "module": "M104"
+            }
+        ]
+    },
+    {
+        "_id": "M301",
+        "name": "Resources",
+        "course": "RS103"
+    },
+    {
+        "_id": "M302",
+        "name": "Required Textbook",
+        "course": "RS103"
+    },
+    {
+        "_id": "M303",
+        "name": "Week 0 - INTRO",
+        "description": "LEARNING OBJECTIVES",
+        "course": "RS103",
+        "lessons": [
+            {
+                "_id": "L301",
+                "name": "Introduction to the course",
+                "module": "M103"
+            },
+            {
+                "_id": "L302",
+                "name": "Learn what is Web Development",
+                "module": "M103"
+            },
+            {
+                "_id": "L303",
+                "name": "Creating a development environment",
+                "module": "M103"
+            },
+            {
+                "_id": "L304",
+                "name": "Creating a Web Application",
+                "module": "M103"
+            },
+            {
+                "_id": "L305",
+                "name": "Getting started with the 1st assignment",
+                "module": "M103"
+            }
+        ]
+    },
+    {
+        "_id": "M304",
+        "name": "Week 1 - HTML",
+        "description": "LEARNING OBJECTIVES",
+        "course": "RS103",
+        "lessons": [
+            {
+                "_id": "L401",
+                "name": "Learn how to create user interfaces with HTML",
+                "module": "M104"
+            },
+            {
+                "_id": "L402",
+                "name": "Keep working on assignemnt 1",
+                "module": "M104"
+            },
+            {
+                "_id": "L403",
+                "name": "Deploy the assignment to Netlify",
+                "module": "M104"
+            }
+        ]
+    }
+]

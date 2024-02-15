@@ -1,0 +1,119 @@
+[
+    {
+        "_id": "A101",
+        "title": "A1 - ENV + HTML",
+        "course": "RS101",
+        "due": "Due Sep 18 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A102",
+        "title": "A2 - CSS + BOOTSTRAP",
+        "course": "RS101",
+        "due": "Due Oct 2 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A103",
+        "title": "A3 - JS + REACT",
+        "course": "RS101",
+        "due": "Due Oct 16 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A104",
+        "title": "A4 - STATE + REDUX",
+        "course": "RS101",
+        "description": "Not available until Oct 15 at 12:00am | ",
+        "due": "Due Oct 30 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A105",
+        "title": "A5 - NODE + SESSION",
+        "course": "RS101",
+        "description": "Not available until Oct 9 at 12:00am | ",
+        "due": "Due Nov 13 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A106",
+        "title": "A6 - MONGO",
+        "course": "RS101",
+        "description": "Not available until Nov 26 at 12:00am | ",
+        "due": "Due Nov 27 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A201",
+        "title": "A1 - ENV + HTML",
+        "course": "RS102",
+        "due": "Due Sep 18 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A202",
+        "title": "A2 - CSS + BOOTSTRAP",
+        "course": "RS102",
+        "due": "Due Oct 2 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A203",
+        "title": "A3 - JS + REACT",
+        "course": "RS102",
+        "due": "Due Oct 16 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A204",
+        "title": "A4 - STATE + REDUX",
+        "course": "RS102",
+        "description": "Not available until Oct 15 at 12:00am | ",
+        "due": "Due Oct 30 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A205",
+        "title": "A5 - NODE + SESSION",
+        "course": "RS102",
+        "description": "Not available until Oct 9 at 12:00am | ",
+        "due": "Due Nov 13 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A206",
+        "title": "A6 - MONGO",
+        "course": "RS102",
+        "description": "Not available until Nov 26 at 12:00am | ",
+        "due": "Due Nov 27 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A301",
+        "title": "A1 - ENV + HTML",
+        "course": "RS103",
+        "due": "Due Sep 18 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A302",
+        "title": "A2 - CSS + BOOTSTRAP",
+        "course": "RS103",
+        "due": "Due Oct 2 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A303",
+        "title": "A3 - JS + REACT",
+        "course": "RS103",
+        "due": "Due Oct 16 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A304",
+        "title": "A4 - STATE + REDUX",
+        "course": "RS103",
+        "description": "Not available until Oct 15 at 12:00am | ",
+        "due": "Due Oct 30 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A305",
+        "title": "A5 - NODE + SESSION",
+        "course": "RS103",
+        "description": "Not available until Oct 9 at 12:00am | ",
+        "due": "Due Nov 13 at 11:59pm | 100 pts"
+    },
+    {
+        "_id": "A306",
+        "title": "A6 - MONGO",
+        "course": "RS103",
+        "description": "Not available until Nov 26 at 12:00am | ",
+        "due": "Due Nov 27 at 11:59pm | 100 pts"
+    }
+]
