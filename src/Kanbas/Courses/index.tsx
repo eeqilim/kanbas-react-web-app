@@ -172,7 +172,7 @@ function Courses() {
                     </Routes>
 
                 </div>
-                <div className="flex-fill container-fluid p-3">
+                <div className="flex-fill container-fluid p-3 d-md-none">
                     <Routes>
                         {(!isModulesOpen && !isDropdownOpen) && (
                             <>
