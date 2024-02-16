@@ -77,8 +77,8 @@ function Courses() {
     };
 
     return (
-        <div className="container-fluid">
-            <div className="d-none d-md-block" style={{ marginTop: "20px", marginLeft: "15px" }}>
+        <div>
+            <div className="d-none d-md-block" style={{ marginTop: "20px", marginLeft: "25px" }}>
                 <ol className="breadcrumb">
                     <span style={{ color: "red" }}><HiMiniBars3 /> &nbsp;{course?.name}</span>
 
@@ -159,7 +159,7 @@ function Courses() {
             </div>
 
             <div className="d-none d-md-block">
-                <em style={{ fontSize: "10px", marginLeft: "15px" }}>{course?.description}</em>
+                <em style={{ fontSize: "10px", marginLeft: "25px" }}>{course?.description}</em>
                 <CourseNavigation />
             </div>
 
