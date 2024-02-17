@@ -92,7 +92,7 @@ function Courses() {
 
                     {(currentLocation == "Modules" || currentLocation == "Home") &&
                         (<div className="col">
-                            <button type="button" className="float-end btn btn-light">
+                            <button type="button" className="float-end btn btn-light" style={{ marginRight: "15px" }}>
                                 <GrInspect style={{ color: "grey" }} /> Student View
                             </button>
                         </div>)}
