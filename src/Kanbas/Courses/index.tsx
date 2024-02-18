@@ -36,6 +36,7 @@ function Courses() {
         { path: "Home", element: <Home />, icon: <FaHome className="wd-kanbas-navigation-icon" />, label: "Home" },
         { path: "Modules", element: <Modules />, icon: <TiFlowMerge className="wd-kanbas-navigation-icon" />, label: "Modules" },
         { path: "Piazza", element: <h1>Piazza</h1>, icon: <BsPlug className="wd-kanbas-navigation-icon" />, label: "Piazza" },
+        { path: "Zoom", element: <h1>Zoom Meetings</h1>, icon: <BsPlug className="wd-kanbas-navigation-icon" />, label: "Zoom Meetings" },
         { path: "Assignments", element: <Assignments />, icon: <FaRegEdit className="wd-kanbas-navigation-icon" />, label: "Assignments" },
         { path: "Assignments/:assignmentId", element: <AssignmentEditor /> },
         { path: "Grades", element: <Grades />, icon: <VscNotebook className="wd-kanbas-navigation-icon" />, label: "Grades" },
@@ -50,6 +51,7 @@ function Courses() {
         { path: "Outcomes", element: <h1>Outcomes</h1>, icon: <PiTarget className="wd-kanbas-navigation-icon" />, icon2: <FaEyeSlash style={{ color: "grey" }} />, label: "Outcomes" },
         { path: "Collaborations", element: <h1>Collaborations</h1>, icon: <FaRegCircle className="wd-kanbas-navigation-icon" />, icon2: <FaEyeSlash style={{ color: "grey" }} />, label: "Collaborations" },
         { path: "Syllabus", element: <h1>Syllabus</h1>, icon: <LiaBookSolid className="wd-kanbas-navigation-icon" />, icon2: <FaEyeSlash style={{ color: "grey" }} />, label: "Syllabus" },
+        { path: "Progress", element: <h1>Progress Reports (EAB Navigate)</h1>, icon: <BsPlug className="wd-kanbas-navigation-icon" />, label: "Progress Reports (EAB Navigate)" },
         { path: "Settings", element: <h1>Settings</h1>, icon: <TiCogOutline className="wd-kanbas-navigation-icon" />, label: "Settings" },
     ];
 
@@ -123,7 +125,7 @@ function Courses() {
                             <tr>
                                 <td colSpan={5}>
                                     {isDropdownOpen && (
-                                        <div style={{ backgroundColor: "white", color: "red", padding: "10px" }}>
+                                        <div style={{ border: "1px #ced4da", borderBottom: "1px solid #adb5bd", boxShadow: "0px 9px 20px rgba(0, 0, 0, 0.3)", padding: "10px", marginBottom: "30px" }}>
                                             {routes.map((item, index) => (
                                                 <div key={index}>
                                                     {item.path && (
@@ -174,7 +176,7 @@ function Courses() {
                 </div>
                 <div className="flex-fill container-fluid p-3 d-md-none">
                     <Routes>
-                        {(!isModulesOpen && !isDropdownOpen) && (
+                        {(!isModulesOpen) && (
                             <>
                                 {routes.map((route, index) => (
                                     <Route key={index} {...route} />
