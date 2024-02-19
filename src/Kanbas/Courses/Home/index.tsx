@@ -5,12 +5,12 @@ import { LiaBullhornSolid } from "react-icons/lia";
 
 function Home() {
     return (
-        <div className="d-flex">
-            <div className="flex-fill">
+        <div className="d-flex flex-wrap">
+            <div className="col-lg-8 flex-fill" style={{ padding: "5px" }}>
                 <ModuleList />
             </div>
 
-            <div className="flex-grow-0 me-2 d-none d-lg-block p-1" style={{ width: "250px" }}>
+            <div className="col d-lg-block" style={{ width: "250px", padding: "5px", marginRight: "5px", marginBottom: "50px" }}>
                 <h6>Course Status</h6>
                 <button type="button">
                     <FaMinusCircle style={{ color: "grey" }} /> Unpublish
@@ -22,21 +22,31 @@ function Home() {
                     <button type="button" style={{ width: "250px", textAlign: "left", marginBottom: "2px" }}>
                         <LuFileInput /> Import Existing Content
                     </button>
+                </div>
+                <div>
                     <button type="button" style={{ width: "250px", textAlign: "left", marginBottom: "2px" }}>
                         <FaSignOutAlt /> Import From Commons
                     </button>
+                </div>
+                <div>
                     <button type="button" style={{ width: "250px", textAlign: "left", marginBottom: "2px" }}>
                         <LuTarget /> Choose Home Page
                     </button>
+                </div>
+                <div>
                     <button type="button" style={{ width: "250px", textAlign: "left", marginBottom: "2px" }}>
                         <FaChartBar /> View Course Stream
                     </button>
+                </div>
+                <div>
                     <button type="button" style={{ width: "250px", textAlign: "left", marginBottom: "2px" }}>
                         <LiaBullhornSolid /> New Announcement
                     </button>
-                    <button type="button" style={{ width: "250px", textAlign: "left", marginBottom: "2px" }}>
-                        <FaChartBar /> New Analytics
-                    </button>
+                </div>
+                <button type="button" style={{ width: "250px", textAlign: "left", marginBottom: "2px" }}>
+                    <FaChartBar /> New Analytics
+                </button>
+                <div>
                     <button type="button" style={{ width: "250px", textAlign: "left", marginBottom: "2px" }}>
                         <FaRegBell /> View Course Notification
                     </button>
