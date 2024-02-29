@@ -1,11 +1,15 @@
-import { assignments, enrollments, grades, users } from "../../Database";
 import { useParams } from "react-router-dom";
 import { FaCog } from "react-icons/fa";
 import { TbFileImport, TbFileExport } from "react-icons/tb";
 import { FiFilter } from "react-icons/fi";
+import db from "../../Database";
 
 function Grades() {
     const { courseId } = useParams();
+    const assignments = db.assignments;
+    const enrollments = db.enrollments;
+    const users = db.users;
+    const grades = db.grades;
     const as = assignments.filter((assignment) => assignment.course === courseId);
     const es = enrollments.filter((enrollment) => enrollment.course === courseId);
 

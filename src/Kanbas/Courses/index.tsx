@@ -1,6 +1,7 @@
-import { assignments, courses } from "../../Kanbas/Database";
+import React, { useState } from 'react';
 import { Navigate, Route, Routes, useParams, useLocation, Link } from "react-router-dom";
-import { HiMiniBars3 } from "react-icons/hi2";
+import { useSelector } from "react-redux";
+import { KanbasState } from "../store";
 import CourseNavigation from "./Navigation";
 import Modules from "./Modules";
 import Home from "./Home";
@@ -8,8 +9,7 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 import Dashboard from "../Dashboard";
-import { GrInspect } from "react-icons/gr";
-import React, { useState } from 'react';
+import db from "../../Kanbas/Database";
 import {
     FaChevronDown, FaTachometerAlt, FaRegUserCircle, FaBook, FaRegCalendarAlt,
     FaInbox, FaRegClock, FaDesktop, FaExternalLinkAlt, FaRegQuestionCircle, FaTimes,
@@ -23,13 +23,39 @@ import { GoCommentDiscussion } from "react-icons/go";
 import { LiaBullhornSolid, LiaBookSolid } from "react-icons/lia";
 import { FaRegFolderClosed } from "react-icons/fa6";
 import { PiTarget } from "react-icons/pi";
+import { HiMiniBars3 } from "react-icons/hi2";
+import { GrInspect } from "react-icons/gr";
 
-function Courses() {
+function Courses({ courses }: { courses: any[] }) {
     const { courseId } = useParams();
     const course = courses.find((course) => course._id === courseId);
-
     const currentLocation = useLocation().pathname.split("/").pop();
-    const assignment = assignments.find((assignment) => assignment._id === currentLocation);
+    const assignment = useSelector((state: KanbasState) =>
+        state.assignmentsReducer.assignment._id === currentLocation ? state.assignmentsReducer.assignment : null);
+    const [coursesState, setCoursesState] = useState(db.courses);
+    const [courseState, setCourseState] = useState({
+        _id: "0", name: "New Course", "section": "CS4550.12631.202410",
+        "description": "202410_1 Fall 2023 Semester Full Term", number: "New Number",
+        startDate: "2023-09-10", endDate: "2023-12-15",
+        image: "reactjs.jpg"
+    });
+    const addNewCourse = () => {
+        setCoursesState([...courses, { ...course, _id: new Date().getTime().toString() }]);
+    };
+    const deleteCourse = (courseId: string) => {
+        setCoursesState(courses.filter((course) => course._id !== courseId));
+    };
+    const updateCourse = () => {
+        setCoursesState(
+            courses.map((c) => {
+                if (c._id === course._id) {
+                    return course;
+                } else {
+                    return c;
+                }
+            })
+        );
+    };
 
     const routes = [
         { path: "/", element: <Navigate to="Home" /> },
@@ -56,9 +82,18 @@ function Courses() {
     ];
 
     const dashboardItems = [
-        { path: "../Dashboard", element: <Dashboard />, label: "Dashboard", icon: <FaTachometerAlt className="fs-2 wd-kanbas-navigation-icon" /> },
+        {
+            path: "../Dashboard", element: <Dashboard
+                courses={coursesState}
+                course={courseState}
+                setCourse={setCourseState}
+                addNewCourse={addNewCourse}
+                deleteCourse={deleteCourse}
+                updateCourse={updateCourse} />,
+            label: "Dashboard", icon: <FaTachometerAlt className="fs-2 wd-kanbas-navigation-icon" />
+        },
         { path: "../Account", element: < h1>Account</h1>, label: "Account", icon: <FaRegUserCircle className="fs-2" style={{ color: "grey" }} />, icon2: <FaChevronRight style={{ color: "lightgrey", float: "right" }} /> },
-        { path: "Home", element: <Courses />, label: "Courses", icon: <FaBook className="fs-2 wd-kanbas-navigation-icon" />, icon2: <FaChevronRight style={{ color: "lightgrey", float: "right" }} /> },
+        { path: "Home", element: <Courses courses={courses} />, label: "Courses", icon: <FaBook className="fs-2 wd-kanbas-navigation-icon" />, icon2: <FaChevronRight style={{ color: "lightgrey", float: "right" }} /> },
         { path: "../Calendar", element: < h1>Calendar</h1>, label: "Calendar", icon: <FaRegCalendarAlt className="fs-2 wd-kanbas-navigation-icon" /> },
         { path: "../Inbox", element: < h1>Inbox</h1>, label: "Inbox", icon: <FaInbox className="fs-2 wd-kanbas-navigation-icon" />, breakAfter: true },
         { path: "../Studio", element: < h1>Studio</h1>, label: "Studio", icon: <FaDesktop className="fs-2 wd-kanbas-navigation-icon" /> },
