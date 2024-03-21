@@ -4,16 +4,25 @@ import { useSelector, useDispatch } from "react-redux";
 import { FaCheckCircle, FaEllipsisV, FaRegCalendarAlt } from "react-icons/fa";
 import { KanbasState } from "../../../store";
 import { addAssignment, updateAssignment, setAssignment } from "../assignmentsReducer";
+import * as client from "../client";
 
 function AssignmentEditor() {
     const { courseId, assignmentId } = useParams();
+    const handleAddAssignment = () => {
+        client.createAssignment(courseId, assignment).then((assignment) => {
+            dispatch(addAssignment(assignment));
+        });
+    };
+    const handleUpdateAssignment = async () => {
+        const status = await client.updateAssignment(assignment);
+        dispatch(updateAssignment(module));
+    };
     const assignmentList = useSelector((state: KanbasState) =>
         state.assignmentsReducer.assignments);
     const assignment = useSelector((state: KanbasState) =>
         state.assignmentsReducer.assignment);
     const dispatch = useDispatch();
     const isNewAssignment = !assignmentList.find(assignment => assignment._id === assignmentId);
-
     return (
         <div className="container-fluid">
             <div style={{ textAlign: "right", color: "green" }}>
@@ -201,8 +210,8 @@ function AssignmentEditor() {
                     <div className="float-end">
                         <Link to={`/Kanbas/Courses/${courseId}/Assignments`} className="btn btn-danger"
                             onClick={isNewAssignment
-                                ? () => dispatch(addAssignment({ ...assignment, course: courseId }))
-                                : () => dispatch(updateAssignment(assignment))}>
+                                ? handleAddAssignment
+                                : handleUpdateAssignment}>
                             Save
                         </Link>
                         <Link to={`/Kanbas/Courses/${courseId}/Assignments`}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navigate, Route, Routes, useParams, useLocation, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { KanbasState } from "../store";
@@ -25,10 +25,22 @@ import { FaRegFolderClosed } from "react-icons/fa6";
 import { PiTarget } from "react-icons/pi";
 import { HiMiniBars3 } from "react-icons/hi2";
 import { GrInspect } from "react-icons/gr";
+import axios from "axios";
 
-function Courses({ courses }: { courses: any[] }) {
+function Courses() {
     const { courseId } = useParams();
-    const course = courses.find((course) => course._id === courseId);
+    const COURSES_API = "http://localhost:4000/api/courses";
+    const [course, setCourse] = useState<any>({ _id: "" });
+    const [courses, setCourses] = useState<any[]>([]);
+    const findCourseById = async (courseId?: string) => {
+        const response = await axios.get(
+            `${COURSES_API}/${courseId}`
+        );
+        setCourse(response.data);
+    };
+    useEffect(() => {
+        findCourseById(courseId);
+    }, [courseId]);
     const currentLocation = useLocation().pathname.split("/").pop();
     const assignment = useSelector((state: KanbasState) =>
         state.assignmentsReducer.assignment._id === currentLocation ? state.assignmentsReducer.assignment : null);
@@ -39,24 +51,30 @@ function Courses({ courses }: { courses: any[] }) {
         startDate: "2023-09-10", endDate: "2023-12-15",
         image: "reactjs.jpg"
     });
-    const addNewCourse = () => {
-        setCoursesState([...courses, { ...course, _id: new Date().getTime().toString() }]);
+    const addNewCourse = async () => {
+        const response = await axios.post(COURSES_API, course);
+        setCourses([...courses, response.data]);
     };
-    const deleteCourse = (courseId: string) => {
-        setCoursesState(courses.filter((course) => course._id !== courseId));
+    const deleteCourse = async (courseId: string) => {
+        const response = await axios.delete(
+            `${COURSES_API}/${courseId}`
+        );
+        setCourses(courses.filter((course) => course._id !== courseId));
     };
-    const updateCourse = () => {
-        setCoursesState(
+    const updateCourse = async () => {
+        const response = await axios.put(
+            `${COURSES_API}/${course._id}`,
+            course
+        );
+        setCourses(
             courses.map((c) => {
                 if (c._id === course._id) {
                     return course;
-                } else {
-                    return c;
                 }
+                return c;
             })
         );
     };
-
     const routes = [
         { path: "/", element: <Navigate to="Home" /> },
         { path: "Home", element: <Home />, icon: <FaHome className="wd-kanbas-navigation-icon" />, label: "Home" },
@@ -80,7 +98,6 @@ function Courses({ courses }: { courses: any[] }) {
         { path: "Progress", element: <h1>Progress Reports (EAB Navigate)</h1>, icon: <BsPlug className="wd-kanbas-navigation-icon" />, label: "Progress Reports (EAB Navigate)" },
         { path: "Settings", element: <h1>Settings</h1>, icon: <TiCogOutline className="wd-kanbas-navigation-icon" />, label: "Settings" },
     ];
-
     const dashboardItems = [
         {
             path: "../Dashboard", element: <Dashboard
@@ -92,27 +109,23 @@ function Courses({ courses }: { courses: any[] }) {
                 updateCourse={updateCourse} />,
             label: "Dashboard", icon: <FaTachometerAlt className="fs-2 wd-kanbas-navigation-icon" />
         },
-        { path: "../Account", element: < h1>Account</h1>, label: "Account", icon: <FaRegUserCircle className="fs-2" style={{ color: "grey" }} />, icon2: <FaChevronRight style={{ color: "lightgrey", float: "right" }} /> },
-        { path: "Home", element: <Courses courses={courses} />, label: "Courses", icon: <FaBook className="fs-2 wd-kanbas-navigation-icon" />, icon2: <FaChevronRight style={{ color: "lightgrey", float: "right" }} /> },
-        { path: "../Calendar", element: < h1>Calendar</h1>, label: "Calendar", icon: <FaRegCalendarAlt className="fs-2 wd-kanbas-navigation-icon" /> },
-        { path: "../Inbox", element: < h1>Inbox</h1>, label: "Inbox", icon: <FaInbox className="fs-2 wd-kanbas-navigation-icon" />, breakAfter: true },
-        { path: "../Studio", element: < h1>Studio</h1>, label: "Studio", icon: <FaDesktop className="fs-2 wd-kanbas-navigation-icon" /> },
-        { path: "../Commons", element: < h1>Commons</h1>, label: "Commons", icon: <FaExternalLinkAlt className="fs-2 wd-kanbas-navigation-icon" /> },
-        { path: "../History", element: < h1>History</h1>, label: "History", icon: <FaRegClock className="fs-2 wd-kanbas-navigation-icon" />, icon2: <FaChevronRight style={{ color: "lightgrey", float: "right" }} /> },
-        { path: "../Help", element: < h1>Help</h1>, label: "Help", icon: <FaRegQuestionCircle className="fs-2 wd-kanbas-navigation-icon" />, icon2: <FaChevronRight style={{ color: "lightgrey", float: "right" }} />, breakAfter: true },
+        { path: "../Account", element: <h1>Account</h1>, label: "Account", icon: <FaRegUserCircle className="fs-2" style={{ color: "grey" }} />, icon2: <FaChevronRight style={{ color: "lightgrey", float: "right" }} /> },
+        { path: "Home", element: <Courses />, label: "Courses", icon: <FaBook className="fs-2 wd-kanbas-navigation-icon" />, icon2: <FaChevronRight style={{ color: "lightgrey", float: "right" }} /> },
+        { path: "../Calendar", element: <h1>Calendar</h1>, label: "Calendar", icon: <FaRegCalendarAlt className="fs-2 wd-kanbas-navigation-icon" /> },
+        { path: "../Inbox", element: <h1>Inbox</h1>, label: "Inbox", icon: <FaInbox className="fs-2 wd-kanbas-navigation-icon" />, breakAfter: true },
+        { path: "../Studio", element: <h1>Studio</h1>, label: "Studio", icon: <FaDesktop className="fs-2 wd-kanbas-navigation-icon" /> },
+        { path: "../Commons", element: <h1>Commons</h1>, label: "Commons", icon: <FaExternalLinkAlt className="fs-2 wd-kanbas-navigation-icon" /> },
+        { path: "../History", element: <h1>History</h1>, label: "History", icon: <FaRegClock className="fs-2 wd-kanbas-navigation-icon" />, icon2: <FaChevronRight style={{ color: "lightgrey", float: "right" }} /> },
+        { path: "../Help", element: <h1>Help</h1>, label: "Help", icon: <FaRegQuestionCircle className="fs-2 wd-kanbas-navigation-icon" />, icon2: <FaChevronRight style={{ color: "lightgrey", float: "right" }} />, breakAfter: true },
     ];
-
     const [isModulesOpen, setIsModulesOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
     const toggleModulesCollapse = () => {
         setIsModulesOpen(!isModulesOpen);
     };
-
     const toggleDropdownCollapse = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
-
     return (
         <div>
             <div className="d-none d-md-block" style={{ marginTop: "20px", marginLeft: "25px" }}>

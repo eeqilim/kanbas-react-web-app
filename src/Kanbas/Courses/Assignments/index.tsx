@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaCheckCircle, FaEllipsisV, FaPlusCircle, FaCaretDown, FaRegEdit } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteAssignment, setAssignment, resetAssignment } from "./assignmentsReducer";
+import { deleteAssignment, setAssignment, setAssignments, resetAssignment } from "./assignmentsReducer";
 import { KanbasState } from "../../store";
+import * as client from "./client";
 
 function Assignments() {
     const { courseId } = useParams();
+    const handleDeleteAssignment = (assignmentId: string) => {
+        client.deleteAssignment(assignmentId).then((status) => {
+            dispatch(deleteAssignment(assignmentId));
+        });
+    };
+    useEffect(() => {
+        client.findAssignmentsForCourse(courseId)
+            .then((assignments) =>
+                dispatch(setAssignments(assignments))
+            );
+    }, [courseId]);
     const assignmentList = useSelector((state: KanbasState) =>
         state.assignmentsReducer.assignments.filter(assignment => assignment.course === courseId));
     const dispatch = useDispatch();
-
     const confirmDelete = (assignmentId: any) => {
         if (window.confirm("Are you sure you want to delete this assignment?")) {
-            dispatch(deleteAssignment(assignmentId));
+            handleDeleteAssignment(assignmentId);
         }
     }
-
     const formatDate = (dateString: string | number | Date) => {
         return new Date(dateString).toLocaleString('en-US', {
             month: 'short',
@@ -26,7 +36,6 @@ function Assignments() {
             hour12: true
         });
     };
-
     return (
         <div className="container-fluid">
             <div className="row">

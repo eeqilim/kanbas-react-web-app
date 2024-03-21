@@ -12,7 +12,6 @@ function Grades() {
     const grades = db.grades;
     const as = assignments.filter((assignment) => assignment.course === courseId);
     const es = enrollments.filter((enrollment) => enrollment.course === courseId);
-
     return (
         <div className="container-fluid">
             <div className="row">
