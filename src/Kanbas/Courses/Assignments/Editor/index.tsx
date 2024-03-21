@@ -15,7 +15,7 @@ function AssignmentEditor() {
     };
     const handleUpdateAssignment = async () => {
         const status = await client.updateAssignment(assignment);
-        dispatch(updateAssignment(module));
+        dispatch(updateAssignment(assignment));
     };
     const assignmentList = useSelector((state: KanbasState) =>
         state.assignmentsReducer.assignments);
