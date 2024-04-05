@@ -14,7 +14,7 @@ export default function Profile() {
             console.log(profile);
         } catch (e) {
             console.log(e);
-            navigate("/Kanbas/Account/login");
+            navigate("/Kanbas/Account/Signin");
         }
     };
     const save = async () => {
@@ -50,7 +50,7 @@ export default function Profile() {
                     <input value={profile.email} className="form-control mt-1" placeholder="Email"
                         onChange={(e) =>
                             setProfile({ ...profile, email: e.target.value })} />
-                    <select className="form-control mt-1" onChange={(e) =>
+                    <select value={profile.role} className="form-control mt-1" onChange={(e) =>
                         setProfile({ ...profile, role: e.target.value })}>
                         <option value="USER">User</option>
                         <option value="ADMIN">Admin</option>

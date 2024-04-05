@@ -9,8 +9,8 @@ export default function Signup() {
         try {
             await client.signup(user);
             navigate("/Kanbas/Account/Profile");
-        } catch (err: any) {
-            setError(err.response.data.message);
+        } catch (e) {
+            console.log(e);
         }
     };
     return (
