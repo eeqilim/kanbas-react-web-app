@@ -2,44 +2,50 @@ import React, { useState, useEffect } from "react";
 import "./index.css";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle, FaRegCheckCircle, FaCaretRight, FaCaretDown } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import {
-    addModule,
-    deleteModule,
-    updateModule,
-    setModule,
-    setModules,
-} from "./modulesReducer";
-import { KanbasState } from "../../store";
 import * as client from "./client";
+import { Module } from "./client";
 
 function ModuleList() {
     const { courseId } = useParams();
-    const handleUpdateModule = async () => {
-        const status = await client.updateModule(module);
-        dispatch(updateModule(module));
+    const [modules, setModules] = useState<Module[]>([]);
+    const [module, setModule] = useState<Module>({
+        _id: "0", name: "New Module", description: "New Description",
+        course: courseId as string, lessons: [
+            { _id: "", name: "", module: "" }
+        ]
+    });
+    const createModule = async () => {
+        try {
+            const newModule = await client.createModule(module);
+            setModules([newModule, ...modules]);
+        } catch (err) {
+            console.log(err);
+        }
     };
-    const handleDeleteModule = (moduleId: string) => {
-        client.deleteModule(moduleId).then((status) => {
-            dispatch(deleteModule(moduleId));
-        });
+    const fetchModules = async () => {
+        const modules = await client.findAllModules(courseId);
+        setModules(modules);
     };
-    const handleAddModule = () => {
-        client.createModule(courseId, module).then((module) => {
-            dispatch(addModule(module));
-        });
+    const updateModule = async () => {
+        try {
+            const status = await client.updateModule(module);
+            setModules(modules.map((u) =>
+                (u._id === module._id ? module : u)));
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    const deleteModule = async (module: Module) => {
+        try {
+            await client.deleteModule(module);
+            setModules(modules.filter((u) => u._id !== module._id));
+        } catch (err) {
+            console.log(err);
+        }
     };
     useEffect(() => {
-        client.findModulesForCourse(courseId)
-            .then((modules) =>
-                dispatch(setModules(modules))
-            );
+        fetchModules();
     }, [courseId]);
-    const moduleList = useSelector((state: KanbasState) =>
-        state.modulesReducer.modules);
-    const module = useSelector((state: KanbasState) =>
-        state.modulesReducer.module);
-    const dispatch = useDispatch();
     return (
         <>
             <div style={{ textAlign: "right" }}>
@@ -56,32 +62,32 @@ function ModuleList() {
             <ul className="list-group wd-modules">
                 <li className="list-group-item">
                     <div>
-                        <button onClick={handleAddModule}>
+                        <button onClick={createModule}>
                             Add
                         </button>
-                        <button style={{ marginLeft: "5px" }} onClick={handleUpdateModule}>
+                        <button style={{ marginLeft: "5px" }} onClick={updateModule}>
                             Update
                         </button>
                         <br />
                         <input
                             value={module.name} style={{ marginBottom: "8px", width: "100%" }}
-                            onChange={(e) => dispatch(setModule({ ...module, name: e.target.value }))} />
+                            onChange={(e) => setModule({ ...module, name: e.target.value })} />
                         <br />
                         <textarea
                             value={module.description} style={{ width: "100%" }}
                             onChange={(e) =>
-                                dispatch(setModule({ ...module, description: e.target.value }))} />
+                                setModule({ ...module, description: e.target.value })} />
                     </div>
                 </li>
-                {moduleList
+                {modules
                     .filter((module) => module.course === courseId)
                     .map((module, index) => (
                         <li key={index} className="list-group-item">
                             <div>
-                                <button onClick={() => dispatch(setModule(module))}>
+                                <button onClick={() => setModule(module)}>
                                     Edit
                                 </button>
-                                <button style={{ marginLeft: "5px" }} onClick={() => handleDeleteModule(module._id)} >
+                                <button style={{ marginLeft: "5px" }} onClick={() => deleteModule(module)} >
                                     Delete
                                 </button>
                                 <br />
@@ -98,7 +104,7 @@ function ModuleList() {
                                 {module.description}
                             </div>
                             <ul className="list-group">
-                                {module.lessons?.map((lesson: { _id: string; name: string; module: string }) => (
+                                {module.lessons?.map((lesson) => (
                                     <li className="list-group-item">
                                         <FaEllipsisV className="me-2" />
                                         {lesson.name}

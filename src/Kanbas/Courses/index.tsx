@@ -9,7 +9,6 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 import Dashboard from "../Dashboard";
-import db from "../../Kanbas/Database";
 import {
     FaChevronDown, FaTachometerAlt, FaRegUserCircle, FaBook, FaRegCalendarAlt,
     FaInbox, FaRegClock, FaDesktop, FaExternalLinkAlt, FaRegQuestionCircle, FaTimes,
@@ -33,11 +32,8 @@ function Courses() {
     const { courseId } = useParams();
     const COURSES_API = `${API_BASE}/api/courses`;
     const [course, setCourse] = useState<any>({ _id: "" });
-    const [courses, setCourses] = useState<any[]>([]);
     const findCourseById = async (courseId?: string) => {
-        const response = await axios.get(
-            `${COURSES_API}/${courseId}`
-        );
+        const response = await axios.get(`${COURSES_API}/${courseId}`);
         setCourse(response.data);
     };
     useEffect(() => {
@@ -46,37 +42,6 @@ function Courses() {
     const currentLocation = useLocation().pathname.split("/").pop();
     const assignment = useSelector((state: KanbasState) =>
         state.assignmentsReducer.assignment._id === currentLocation ? state.assignmentsReducer.assignment : null);
-    const [coursesState, setCoursesState] = useState(db.courses);
-    const [courseState, setCourseState] = useState({
-        _id: "0", name: "New Course", "section": "CS4550.12631.202410",
-        "description": "202410_1 Fall 2023 Semester Full Term", number: "New Number",
-        startDate: "2023-09-10", endDate: "2023-12-15",
-        image: "reactjs.jpg"
-    });
-    const addNewCourse = async () => {
-        const response = await axios.post(COURSES_API, course);
-        setCourses([...courses, response.data]);
-    };
-    const deleteCourse = async (courseId: string) => {
-        const response = await axios.delete(
-            `${COURSES_API}/${courseId}`
-        );
-        setCourses(courses.filter((course) => course._id !== courseId));
-    };
-    const updateCourse = async () => {
-        const response = await axios.put(
-            `${COURSES_API}/${course._id}`,
-            course
-        );
-        setCourses(
-            courses.map((c) => {
-                if (c._id === course._id) {
-                    return course;
-                }
-                return c;
-            })
-        );
-    };
     const routes = [
         { path: "/", element: <Navigate to="Home" /> },
         { path: "Home", element: <Home />, icon: <FaHome className="wd-kanbas-navigation-icon" />, label: "Home" },
@@ -101,16 +66,7 @@ function Courses() {
         { path: "Settings", element: <h1>Settings</h1>, icon: <TiCogOutline className="wd-kanbas-navigation-icon" />, label: "Settings" },
     ];
     const dashboardItems = [
-        {
-            path: "../Dashboard", element: <Dashboard
-                courses={coursesState}
-                course={courseState}
-                setCourse={setCourseState}
-                addNewCourse={addNewCourse}
-                deleteCourse={deleteCourse}
-                updateCourse={updateCourse} />,
-            label: "Dashboard", icon: <FaTachometerAlt className="fs-2 wd-kanbas-navigation-icon" />
-        },
+        { path: "../Dashboard", element: <Dashboard />, label: "Dashboard", icon: <FaTachometerAlt className="fs-2 wd-kanbas-navigation-icon" /> },
         { path: "../Account", element: <h1>Account</h1>, label: "Account", icon: <FaRegUserCircle className="fs-2" style={{ color: "grey" }} />, icon2: <FaChevronRight style={{ color: "lightgrey", float: "right" }} /> },
         { path: "Home", element: <Courses />, label: "Courses", icon: <FaBook className="fs-2 wd-kanbas-navigation-icon" />, icon2: <FaChevronRight style={{ color: "lightgrey", float: "right" }} /> },
         { path: "../Calendar", element: <h1>Calendar</h1>, label: "Calendar", icon: <FaRegCalendarAlt className="fs-2 wd-kanbas-navigation-icon" /> },
@@ -142,7 +98,7 @@ function Courses() {
                             &nbsp; {'>'} &nbsp; {currentLocation}
                         </li>)}
 
-                    {(currentLocation == "Modules" || currentLocation == "Home") &&
+                    {(currentLocation === "Modules" || currentLocation === "Home") &&
                         (<div className="col">
                             <button type="button" className="float-end btn btn-light" style={{ marginRight: "15px" }}>
                                 <GrInspect style={{ color: "grey" }} /> Student View

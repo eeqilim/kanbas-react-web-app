@@ -1,17 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import * as client from "./client";
+import { Course } from "./client";
 
-function Dashboard(
-    { courses, course, setCourse, addNewCourse,
-        deleteCourse, updateCourse }
-        : {
-            courses: any;
-            course: any;
-            setCourse: React.Dispatch<React.SetStateAction<any>>;
-            addNewCourse: () => void;
-            deleteCourse: (courseId: string) => void;
-            updateCourse: () => void;
-        }) {
+function Dashboard() {
+    const [courses, setCourses] = useState<Course[]>([]);
+    const [course, setCourse] = useState<Course>({
+        _id: "0", name: "New Course", "section": "CS4550.12631.202410",
+        "description": "202410_1 Fall 2023 Semester Full Term", number: "New Number",
+        startDate: "2023-09-10", endDate: "2023-12-15",
+        image: "reactjs.jpg"
+    });
+    const createCourse = async () => {
+        try {
+            const newCourse = await client.createCourse(course);
+            setCourses([newCourse, ...courses]);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    const fetchCourses = async () => {
+        const courses = await client.findAllCourses();
+        setCourses(courses);
+    };
+    const updateCourse = async () => {
+        try {
+            const status = await client.updateCourse(course);
+            setCourses(courses.map((u) =>
+                (u._id === course._id ? course : u)));
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    const deleteCourse = async (course: Course) => {
+        try {
+            await client.deleteCourse(course);
+            setCourses(courses.filter((u) => u._id !== course._id));
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    useEffect(() => { fetchCourses(); }, []);
     return (
         <div className="p-4">
             <h1>Dashboard</h1>
@@ -24,7 +53,7 @@ function Dashboard(
                 onChange={(e) => setCourse({ ...course, startDate: e.target.value })} />
             <input value={course.endDate} className="form-control" type="date" style={{ marginBottom: "5px" }}
                 onChange={(e) => setCourse({ ...course, endDate: e.target.value })} />
-            <button onClick={addNewCourse} >
+            <button onClick={createCourse} >
                 Add
             </button>
             <button style={{ marginLeft: "3px" }} onClick={updateCourse} >
@@ -51,7 +80,7 @@ function Dashboard(
                                         </button>
                                         <button style={{ marginLeft: "3px" }} onClick={(event) => {
                                             event.preventDefault();
-                                            deleteCourse(course._id);
+                                            deleteCourse(course);
                                         }}>
                                             Delete
                                         </button>

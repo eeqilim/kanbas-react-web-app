@@ -1,27 +1,37 @@
 import axios from "axios";
 
-const API_BASE = process.env.REACT_APP_API_BASE;
-const COURSES_API = `${API_BASE}/api/courses`;
-const MODULES_API = `${API_BASE}/api/modules`;
-export const updateModule = async (module: { _id: any; }) => {
-    const response = await axios.
-        put(`${MODULES_API}/${module._id}`, module);
+export const BASE_API = process.env.REACT_APP_API_BASE;
+const COURSES_API = `${BASE_API}/api/courses`;
+const MODULES_API = `${BASE_API}/api/modules`;
+const axiosWithCredentials = axios.create({
+    baseURL: `${BASE_API}/api`,
+    withCredentials: true,
+});
+export interface Lesson {
+    _id: string;
+    name: string;
+    module: string;
+};
+export interface Module {
+    _id: string;
+    name: string;
+    description: string;
+    course: string;
+    lessons: Lesson[];
+};
+export const createModule = async (module: any) => {
+    const response = await axiosWithCredentials.post(`/modules`, module);
     return response.data;
 };
-export const deleteModule = async (moduleId: any) => {
-    const response = await axios
-        .delete(`${MODULES_API}/${moduleId}`);
+export const updateModule = async (module: any) => {
+    const response = await axiosWithCredentials.put(`${MODULES_API}/${module._id}`, module);
     return response.data;
 };
-export const createModule = async (courseId: any, module: any) => {
-    const response = await axios.post(
-        `${COURSES_API}/${courseId}/modules`,
-        module
-    );
+export const deleteModule = async (module: any) => {
+    const response = await axiosWithCredentials.delete(`${MODULES_API}/${module._id}`);
     return response.data;
 };
-export const findModulesForCourse = async (courseId: any) => {
-    const response = await axios
-        .get(`${COURSES_API}/${courseId}/modules`);
+export const findAllModules = async (courseId: any) => {
+    const response = await axiosWithCredentials.get(`${COURSES_API}/${courseId}/modules`);
     return response.data;
 };
